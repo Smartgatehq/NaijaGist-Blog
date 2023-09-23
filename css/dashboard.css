@@ -1,0 +1,177 @@
+:root {
+
+    --black:#343a40;;
+    --white:  #f1f1f1;
+
+}
+
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:var(--black);
+  overflow-x: hidden;
+  padding-top: 80px;
+}
+
+.sidebar a {
+  padding: 40px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:var(--white);
+  display: block;
+}
+
+.sidebar a:hover {
+  color: var(--white);
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 15%;
+    overflow: hidden;
+    background-color:var(--black);
+    position: fixed;
+    top: 0;
+    width: 85%;
+    height: 10%;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: var(--white);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: var(--black);
+  }
+  
+  .search {
+    margin-left: 60%;
+    padding-top: 2%;
+  }
+
+  .search input {
+    height: 80%;
+  }
+
+  .user-icon{
+    margin-left: 95%;
+  }
+
+  .dashboard {
+    margin: 7% 15% 0% 20% ;
+    color: black;
+   }
+
+   .cards{
+    display: flex;
+    margin-top: 2%;
+   }
+  
+  .users {   
+    border: 1px solid #0d6efd;
+    background-color: #0d6efd;
+    width: 18%;
+    height: 100px;
+    margin-left: 20%;
+    color: white;
+    border-radius: 8px;
+    box-shadow: black 0px 5px 15px;
+    cursor: pointer;
+
+  }
+
+  .posts {
+    border: 1px solid #ffc107;
+    background-color: #ffc107;
+    width: 18%;
+    height: 100px;
+    margin-left: 2%;
+    color: white;
+    border-radius: 8px;
+    box-shadow: black 0px 5px 15px;
+    cursor: pointer;
+
+  }
+
+  .topics {
+    border: 1px solid #198754;
+    background-color:#198754;
+    width: 18%;
+    height: 100px;
+    margin-left: 2%;
+    color: white;
+    border-radius: 8px;
+    box-shadow: black 0px 5px 15px;
+    cursor: pointer;
+
+  }
+
+  .views {
+    border: 1px solid #dc3545;
+    background-color: #dc3545;
+    width: 18%;
+    height: 100px;
+    margin-left: 2%;
+    color: white;
+    border-radius: 8px;
+    box-shadow: black 0px 5px 15px;
+    cursor: pointer;
+  }
+
+  .charts {
+    display: flex;
+    margin-top: 5%;
+  }
+
+  .mypics img{
+    margin-left: 60%;
+    height: 450px;
+    border-radius: 100%;
+  }
+
+
+.mymap{
+  margin-left: 25%;
+  border-radius: 15px;
+  margin-top: 3%;
+ }
+
+ .mymap iframe{
+  border-radius: 15px;
+ }
+ 
+ .user-list{
+  text-align: center;
+  margin-top: 3%;
+ }
+
+ .user-table{
+  margin: 5% 0% 5% 25%;
+  text-align: center;
+ }
