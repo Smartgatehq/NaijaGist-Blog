@@ -25,10 +25,11 @@ body {font-family: "Lato", sans-serif;}
   font-size: 20px;
   color:var(--white);
   display: block;
+ 
 }
 
 .sidebar a:hover {
-  color: var(--white);
+  color: rgba(255, 255, 255, 0.596);
 }
 
 .main {
