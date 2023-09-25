@@ -1,11 +1,12 @@
 :root {
 --background: #0d6efd;
---form-color: white;
+--form-color: rgba(255, 255, 255, 0.425);
 --other-color:rgb(53, 160, 247);
 
 }
 body {
-    background-color: var(--background);
+    background-image: url(../images/login_background.jpg);
+    background-size: cover;
 }
 
 .my-form{

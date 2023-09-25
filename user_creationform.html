@@ -10,7 +10,7 @@
     <form action="" method="">
         <div class="my-form">
             <div class="text">
-                <h3>Admin Login</h3>
+                <h3>Registration Page</h3>
             </div>
             <div class="form-field">
                 <label for="Username">Full Name:
@@ -36,25 +36,25 @@
                     >
                 </label>
             </div>
+ 
             <div class="form-field">
-                <label for="role">Select Role:
-                  <select id="role" name="role">
-                    <option class="select" value="select_role">Select Role</option>
-                    <option class="select" value="supervisor">Supervisor</option>
-                    <option class="select" value="member">Team Member</option>
-                    <option class="select" value="manager">Business Manager</option>
-                  </select>
+                <label for="email">Phone Number:
+                    <input 
+                        type="tel" 
+                        name="phone" 
+                        id="phone"  
+                        placeholder="Enter Phone Number"
+                        autocomplete="off"
+                        required
+                    >
                 </label>
-              </div>
-            <div class="remember">
-                <p><input type="checkbox">Remember Password</p>
             </div>
             <div class="btn">
-                <input class="button" type="submit" name="submit" id="submit" value="Login">
+                <input class="button" type="submit" name="submit" id="submit" value="Create Account">
             </div>
 
-            <div class="forgot">
-                <a href="">Forgot Password?</a>
+            <div class="remember">
+                <p>Already have an Account?<a href="login.html">Login here</a></p>
             </div>
         </div>
     </form>
