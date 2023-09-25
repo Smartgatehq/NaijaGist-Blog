@@ -1,0 +1,103 @@
+:root {
+    --background: #0d6efd;
+    --form-color: white;
+    --other-color:rgb(53, 160, 247);
+    
+    }
+    body {
+        background-color: var(--background);
+    }
+    
+    .my-form{
+        border: 2px solid var(--form-color);
+        background-color: var(--form-color);
+        width: 40%;
+        margin: 10% 30%;
+        border-radius: 20px;
+        box-shadow: black 0px 5px 15px;
+        /* box-shadow: var(--button-color) 0px 5px 15px; */
+     
+    }
+    
+    label {
+        color: black;
+    }
+    
+    .text{
+        font-size: 25px;
+        margin-top: 5%;
+        text-align: center;
+    }
+    
+    
+    .form-field{
+       color: white;
+       margin: 0% 20% 5%;
+    
+    }
+    
+    .form-field input {
+      border-radius: 5px;
+      height: 40px;
+      border: 2px solid var(--background);
+      width: 100%;
+      
+    }
+
+    .select {
+        border-radius: 5px;
+        height: 40px;
+        border: 2px solid var(--background);
+        width: 100%;
+    }
+    
+    /* input:focus {
+    background-color: var(--other-color);
+    } */
+    
+    /* .btn{
+        margin: 5% 30%;
+    } */
+    
+    .button{
+        width: 30%;
+        height: 40px;
+        margin: 0% 35% 3%;
+        background-color: var(--background);
+        border-color: var(--background);
+        border-radius: 8px;
+        transition: all 0.3s;
+        cursor: pointer;
+        font-size: 24px;
+        color: var(--form-color);
+    }
+    
+    .button:hover{
+        background-color:var(--other-color);
+        border-color: var(--other-color)
+    }
+    
+    
+    /* .alternate{
+    
+    margin-bottom: 5%;
+    font-size: 20px;
+    align-items: center;
+    
+    } */
+    
+    .remember {
+    margin-left:  20%;
+    
+    }
+    
+    .forgot{
+    text-align: center;
+    margin-bottom: 5%;
+    }
+    
+    .forgot a {
+        text-decoration: none;
+        font-size: 16px;
+    }
+    

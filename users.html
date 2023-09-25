@@ -1,82 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/users.css">
-    <script src="https://kit.fontawesome.com/bc18bf7a86.js" crossorigin="anonymous"></script>
-    <title>Dashboard- NaijaGist-Blog Admin</title>
-</head>
-<body>
-    <div class="sidebar">
-        <a href="#Dashboard"><i class="fa fa-fw fa-chart-line"></i> Dashboard</a>
-        <a href="users.html"><i class="fa-solid fa-users" style="color: #f5f7fa;"></i> Users</a>
-        <a href="#clients"><i class="fa fa-fw fa-envelope"></i> Posts</a>
-        <a href="#contact"><i class="fa-solid fa-chart-simple" style="color: #f5f7fa;"></i> Analytics</a>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/users.css">
+        <script src="https://kit.fontawesome.com/bc18bf7a86.js" crossorigin="anonymous"></script>
+        <title>Dashboard- NaijaGist-Blog Admin</title>
+    </head>
+    <body>
+        <div class="sidebar">
+            <a href="dashboard.html"><i class="fa fa-fw fa-chart-line"></i> Dashboard</a>
+            <a href="users.html"><i class="fa-solid fa-users" style="color: #f5f7fa;"></i> Users</a>
+            <a href="#clients"><i class="fa fa-fw fa-envelope"></i> Posts</a>
+            <a href="#contact"><i class="fa-solid fa-chart-simple" style="color: #f5f7fa;"></i> Analytics</a>
+        </div>
    
-    <div class="topnav">        
-        <div class="search">
-            <input type="search" name="search" placeholder="Search for..."><button>Search</button>
-        </div>
-        <div>
-            <i class="user-icon fa-solid fa-user" style="color: #c3d7f9;"></i>
-        </div>
-    </div>
-
-    <div class="dashboard">
-        <h1>Admin Dashboard</h1>
-    </div>
-         <div class="cards row">
-            <div class="col-md-4">
-        
+        <div class="topnav">        
+            <div class="search">
+                <input type="search" name="search" placeholder="Search for..."><button>Search</button>
             </div>
-            <div class="users col-md-2">
-                <p>Total Users</p>
-            </div>
-            <div class="posts col-md-2">
-                <p>Total Posts</p>
-            </div>
-            <div class="topics col-md-2">
-                <p>Total Topics</p>
-            </div>
-            <div class="views col-md-2">
-                <p>Total Views</p>
+            <div>
+                <i class="user-icon fa-solid fa-user" style="color: #c3d7f9;"></i>
             </div>
         </div>
+        <div class="dashboard-container">
 
-        <div class="charts row">
-            <div class="col-md-2">
+        <div class="user-overview">
+                <h3>Dashboard</h3>
+                <p>Users Overview</p>
+            
+            <div class="user-numbers row">
+                <div class="user-card col-md-3">
+                    <i class="fa-solid fa-users" style="color: #5a5c5b;"></i>
+                   <p>Total Users <br><span>1500</span></p>
+                    <a href="">View<i class="fa-solid fa-eye" style="color: #bbbcbe;"></i></a>
+                </div>
+                <div class="user-card col-md-3">
+                    <i class="fa-solid fa-users" style="color: #07a04c;"></i>
+                    <p>Active Users <br><span>1500</span></p>
+                    <a href="">View<i class="fa-solid fa-eye" style="color: #bbbcbe;"></i></a>
+                </div>
+                <div class="user-card col-md-3">
+                    <i class="fa-solid fa-users-slash" style="color: #fd6c6c;"></i>
+                   <p>Inactive Users <br><span>1500</span></p>
+                    <a href="">View<i class="fa-solid fa-eye" style="color: #bbbcbe;"></i></a>
+                </div>
+                <div class="user-card col-md-3">
+                    <p>Create New user here and assign role</p>
 
-            </div>
-            <div class="mypics col-md-5">
-                <img src="images/mypassport2.jpg" width="" height="" alt="Mypics">
-            </div>
-            <div class="mymap col-md-5">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.
-                    145510392183!2d5.672330874131262!3d6.
-                    3752091248706355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
-                    1!3m3!1m2!1s0x1040d4cd1f6e4c85%3A0x43058133c8617c58!2s1
-                    24%20Upper%20Mission%20Ext%2C%20Uselu%20301112%2C%20Benin%20
-                    City%2C%20Edo!5e0!3m2!1sen!2sng!4v1695375135267!5m2!1sen!2sng"
-                    width="400" height="400" style="border:0;" allowfullscreen="" 
-                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                    <!-- This button will open the create user form when clicked -->
+                    <button class="open-button" onclick="openform()"><a href="">Create User</a></button>
+                </div>
+                
+            </div>       
 
-            </div>            
         </div>
+    
+    
         <div class="user-list">
             <h1> LIST OF USERS</h1>
-        </div>
-        <table class="user-table">
+           <table>
             <tr>
                 <th>S/N</th>
-                <th>NAME OF USER</th>
-                <th>EMAIL</th>
-                <th>PHONE NUMBER</th>
-                <th>NOs. OF POST</th>
-                <th>DATE REGISTERED</th>        
+                <th>Name Of User</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Posts</th>
+                <th>Date Registered</th>
+                <th>User Status</th>
+                <th>Action</th>          
             </tr>
             <tr>
                 <td>1</td>
@@ -85,6 +77,11 @@
                 <td>0802222222</td>
                 <td>450 Posts</td>
                 <td>5Th September, 2023</td>
+                <td><button class="btn-active">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
             </tr>
             <tr>
                 <td>1</td>
@@ -93,6 +90,11 @@
                 <td>0802222222</td>
                 <td>450 Posts</td>
                 <td>5Th September, 2023</td>
+                <td><button class="btn-inactive">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
             </tr>
             <tr>
                 <td>1</td>
@@ -101,6 +103,11 @@
                 <td>0802222222</td>
                 <td>450 Posts</td>
                 <td>5Th September, 2023</td>
+                <td><button class="btn-active">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
             </tr>
             <tr>
                 <td>1</td>
@@ -109,6 +116,11 @@
                 <td>0802222222</td>
                 <td>450 Posts</td>
                 <td>5Th September, 2023</td>
+                <td><button class="btn-inactive">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
             </tr>
             <tr>
                 <td>1</td>
@@ -117,6 +129,11 @@
                 <td>0802222222</td>
                 <td>450 Posts</td>
                 <td>5Th September, 2023</td>
+                <td><button class="btn-active">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
             </tr>
             <tr>
                 <td>1</td>
@@ -125,6 +142,11 @@
                 <td>0802222222</td>
                 <td>450 Posts</td>
                 <td>5Th September, 2023</td>
+                <td><button class="btn-active">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
             </tr>
             <tr>
                 <td>1</td>
@@ -133,9 +155,91 @@
                 <td>0802222222</td>
                 <td>450 Posts</td>
                 <td>5Th September, 2023</td>
+                <td><button class="btn-inactive">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
             </tr>
-          
-    
+            <tr>
+                <td>1</td>
+                <td>John Mike</td>
+                <td>johnmike@gmail.com</td>
+                <td>0802222222</td>
+                <td>450 Posts</td>
+                <td>5Th September, 2023</td>
+                <td><button class="btn-inactive">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>John Mike</td>
+                <td>johnmike@gmail.com</td>
+                <td>0802222222</td>
+                <td>450 Posts</td>
+                <td>5Th September, 2023</td>
+                <td><button class="btn-active">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>John Mike</td>
+                <td>johnmike@gmail.com</td>
+                <td>0802222222</td>
+                <td>450 Posts</td>
+                <td>5Th September, 2023</td>
+                <td><button class="btn-active">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>John Mike</td>
+                <td>johnmike@gmail.com</td>
+                <td>0802222222</td>
+                <td>450 Posts</td>
+                <td>5Th September, 2023</td>
+                <td><button class="btn-active">Active</button></td>
+                <td>
+                    <i class="fa-solid fa-eye" style="color: #bbbcbe;"></i>
+                    <i class="fa-solid fa-ban" style="color: #f91706;"></i>
+                </td>
+            </tr>
         </table>
- </body>
+    </div>
+
+    <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+          <h1>Login</h1>
+      
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+
+      <script>
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+        </script>
+    </div>  
+    </body>
 </html>
