@@ -37,8 +37,6 @@
     }
 
 
-
-
     if (empty($_POST['phone'])) {  
         echo 'Phone Number is required';
     } else if (!preg_match("[0-9]", trim($_POST['phone']))) {
