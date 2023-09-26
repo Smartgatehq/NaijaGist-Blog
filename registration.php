@@ -8,20 +8,18 @@
 
     if (empty($_POST['fullname'])) {
         echo 'Full Name is required';        
-    } else if (!preg_match("/^[a-zA-Z-' ]*$/", trim($_POST['fullname']))) {
+    } elseif (!preg_match("/^[a-zA-Z-' ]*$/", trim($_POST['fullname']))) {
         $nameErr = "Only letters and white space allowed";
     }  else {
         $fullname = $_POST['fullname'];
     }    
 
     //validating email
-    if (empty($_POST['email'])) {  
-        echo 'Email is required';
-    } else if 
-        (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Invalid email format";
+    if (empty($_POST['email'])) {
+        echo  "An email is required";
+    } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+      echo "Email must be a valid email address";
     } else {
-        //created a variable to store the email the user entered
         $check_email = trim($_POST['email']);
 
         //created a variable to check if the email saved above is already in the table
@@ -39,9 +37,11 @@
 
     if (empty($_POST['phone'])) {  
         echo 'Phone Number is required';
-    } else if (!preg_match("[0-9]", trim($_POST['phone']))) {
-        $nameErr = "Only Numbers are allowed";
-    }
+    } elseif (!preg_match("[0-9]", trim($_POST['phone']))) {
+        echo  "only number are allow";
+    }  else {
+        $phone = $_POST['phone'];
+    }  
 
     
     if (empty($_POST['password'])) {  
