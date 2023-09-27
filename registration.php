@@ -44,13 +44,13 @@
     }  
 
     
-    if (empty($_POST['password'])) {  
-        echo 'Password is required';
-    } elseif (strlen(trim($_POST['password'])) < 6) {
-        echo "password must be atleast 6 characters";
-    } else {
-        $password = trim($_POST['password']);
-    }
+    if (empty($_POST['number'])) {
+        echo "number is required";
+     } elseif (!preg_match('/^[0-9]+$/', trim($_POST["number"]))) {
+        echo "only number is accepted";
+     } else {
+       $number =   $_POST['number'];
+     }
 
     
     if (empty($_POST['confirm_password'])) {  
