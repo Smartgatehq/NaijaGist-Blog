@@ -35,23 +35,21 @@
     }
 
 
-    if (empty($_POST['phone'])) {  
-        echo 'Phone Number is required';
-    } elseif (!preg_match("[0-9]", trim($_POST['phone']))) {
-        echo  "only number are allow";
-    }  else {
-        $phone = $_POST['phone'];
-    }  
-
-    
-    if (empty($_POST['number'])) {
-        echo "number is required";
-     } elseif (!preg_match('/^[0-9]+$/', trim($_POST["number"]))) {
-        echo "only number is accepted";
+      if (empty($_POST['phone'])) {
+        echo "Phone number is required";
+     } elseif (!preg_match('/[0-9]+/', trim($_POST["phone"]))) {
+        echo "only numbers is allow.";
      } else {
-       $number =   $_POST['number'];
+        $num = $_POST['phone'];
      }
-
+    
+     if (empty($_POST['password'])) {
+        echo "Password is required";
+    } elseif (strlen(trim($_POST['password'])) < 6) {
+        echo"Password must be at least 6 characters";
+    } else {
+        $password = trim($_POST['password']);
+    }
     
     if (empty($_POST['confirm_password'])) {  
         echo 'Password mismatch';
@@ -62,16 +60,39 @@
         }       
     } 
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    $insert_sql = "INSERT INTO users (fullname, email, phone, password) 
-    VALUES ('$fullname', '$email', '$phone', '$hashed_password')";
-    if ($conn->query($insert_sql) == TRUE) {
-        header("location: login.php");
-    } else {
-        echo "something went wrong";
-    }
+    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // $insert_sql = "INSERT INTO users (fullname, email, phone, password) 
+    // VALUES ('$fullname', '$email', '$phone', '$hashed_password')";
+    // if ($conn->query($insert_sql) == TRUE) {
+    //     header("location: login.php");
+    // } else {
+    //     echo "something went wrong";
+    // }
 
 }
+
+
+
+if (empty($fullname) || empty($email) || empty($password) || empty($phone)){
+    echo "Please fill in all required fields.";
+} else {
+    $hashed_password  = password_hash($password, PASSWORD_DEFAULT);
+    $insert_sql = "INSERT INTO users (fullname, email, password, phone) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($insert_sql);
+    $stmt->bind_param("sssss", $fullname, $email, $hashed_password, $phone);
+    
+    if ($stmt->execute()) {
+        $success_message = "Registration successful! You can now log in.";
+        header("refresh:3;url=login.php");
+        //header("location: login.php");
+      //  exit; // Exit after successful insertion
+    } else {
+        echo "Something went wrong";
+    }
+}
+
+
+$conn->close();
   
 
  ?>
