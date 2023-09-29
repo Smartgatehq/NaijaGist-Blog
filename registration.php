@@ -3,13 +3,17 @@
     include "blog_database.php";
 
     // Validating each form field to ensure they are not empty when submitted
+    $fullname = $email = $phone = $password = "";
+
+
+
 
     if(isset($_POST['submit'])){
 
     if (empty($_POST['fullname'])) {
         echo 'Full Name is required';        
-    } elseif (!preg_match("/^[a-zA-Z-' ]*$/", trim($_POST['fullname']))) {
-        $nameErr = "Only letters and white space allowed";
+    } elseif (!preg_match("/^[a-zA-Z0-9_' ]*$/", trim($_POST['fullname']))) {
+        echo "Only letters and white space allowed";
     }  else {
         $fullname = $_POST['fullname'];
     }    
@@ -23,7 +27,7 @@
         $check_email = trim($_POST['email']);
 
         //created a variable to check if the email saved above is already in the table
-        $check_user_email_sql = "SELECT id from users Where email = ' $check_email'";
+        $check_user_email_sql = "SELECT id from users Where email = '$check_email'";
         $check_email_result = $conn->query($check_user_email_sql);
 
         // checking if there is 1 record of the email
@@ -40,7 +44,7 @@
      } elseif (!preg_match('/[0-9]+/', trim($_POST["phone"]))) {
         echo "only numbers is allow.";
      } else {
-        $num = $_POST['phone'];
+        $phone = $_POST['phone'];
      }
     
      if (empty($_POST['password'])) {
@@ -69,29 +73,47 @@
     //     echo "something went wrong";
     // }
 
-}
+ if (empty($fullname) || empty($email) || empty($password) || empty($phone)){
+       echo "Please fill in all required fields.";
+ }else {
+        $hashed_password  = password_hash($password, PASSWORD_DEFAULT);
+        $insert_sql = "INSERT INTO users (fullname, email, password, phone) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($insert_sql);
+        $stmt->bind_param("ssss", $fullname, $email, $hashed_password, $phone);
+        
 
 
-
-if (empty($fullname) || empty($email) || empty($password) || empty($phone)){
-    echo "Please fill in all required fields.";
+// $stmt = $conn->prepare("INSERT INTO users (fullname, email, phone, password) VALUES (?, ?, ?, ?)");
+// $stmt->bind_param("ssss", $fullname, $email, $phone, $password);
+if ($stmt->execute()) {
+    header("location: login.php");
 } else {
-    $hashed_password  = password_hash($password, PASSWORD_DEFAULT);
-    $insert_sql = "INSERT INTO users (fullname, email, password, phone) VALUES (?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($insert_sql);
-    $stmt->bind_param("sssss", $fullname, $email, $hashed_password, $phone);
-    
-    if ($stmt->execute()) {
-        $success_message = "Registration successful! You can now log in.";
-        header("refresh:3;url=login.php");
-        //header("location: login.php");
-      //  exit; // Exit after successful insertion
-    } else {
-        echo "Something went wrong";
-    }
+    echo "Something went wrong";
+}
+
 }
 
 
+
+// if (empty($fullname) || empty($email) || empty($password) || empty($phone)){
+//     echo "Please fill in all required fields.";
+// } else {
+//     $hashed_password  = password_hash($password, PASSWORD_DEFAULT);
+//     $insert_sql = "INSERT INTO users (fullname, email, password, phone) VALUES (?, ?, ?, ?, ?)";
+//     $stmt = $conn->prepare($insert_sql);
+//     $stmt->bind_param("sssss", $fullname, $email, $hashed_password, $phone);
+    
+//     if ($stmt->execute()) {
+//         $success_message = "Registration successful! You can now log in.";
+//         header("refresh:3;url=login.php");
+//         //header("location: login.php");
+//       //  exit; // Exit after successful insertion
+//     } else {
+//         echo "Something went wrong";
+//     }
+// }
+
+}
 $conn->close();
   
 
