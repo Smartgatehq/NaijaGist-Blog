@@ -5,13 +5,17 @@
     // Validating each form field to ensure they are not empty when submitted
     $fullname = $email = $phone = $password = "";
 
-
+    $fullnameErr = "";
+    $emailErr = ""; 
+    $phoneErr = "";
+    $passwordErr = "";
+    $confirm_passwordErr = "";
 
 
     if(isset($_POST['submit'])){
 
     if (empty($_POST['fullname'])) {
-        echo 'Full Name is required';        
+        $fullnameErr = 'Full Name is required';        
     } elseif (!preg_match("/^[a-zA-Z0-9_' ]*$/", trim($_POST['fullname']))) {
         echo "Only letters and white space allowed";
     }  else {
@@ -20,7 +24,7 @@
 
     //validating email
     if (empty($_POST['email'])) {
-        echo  "An email is required";
+        $emailErr = "An email is required";
     } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
       echo "Email must be a valid email address";
     } else {
@@ -40,15 +44,16 @@
 
 
       if (empty($_POST['phone'])) {
-        echo "Phone number is required";
+        $phoneErr = "Phone number is required";
      } elseif (!preg_match('/[0-9]+/', trim($_POST["phone"]))) {
         echo "only numbers is allow.";
      } else {
         $phone = $_POST['phone'];
      }
     
+
      if (empty($_POST['password'])) {
-        echo "Password is required";
+         $passwordErr ="Password is required";
     } elseif (strlen(trim($_POST['password'])) < 6) {
         echo"Password must be at least 6 characters";
     } else {
@@ -56,7 +61,7 @@
     }
     
     if (empty($_POST['confirm_password'])) {  
-        echo 'Password mismatch';
+        $confirm_passwordErr = 'Password mismatch';
     } else {
         $confirm_password = trim($_POST['confirm_password']);
         if($password != $confirm_password) {
@@ -86,7 +91,9 @@
 // $stmt = $conn->prepare("INSERT INTO users (fullname, email, phone, password) VALUES (?, ?, ?, ?)");
 // $stmt->bind_param("ssss", $fullname, $email, $phone, $password);
 if ($stmt->execute()) {
-    header("location: login.php");
+    $success_message = "Registration successful! You can log in now";
+    header("refresh:3;url=login.php"); // once registration is successful, the page will auto refresh and wait for
+    //3 seconds before going to the login page
 } else {
     echo "Something went wrong";
 }
@@ -138,14 +145,15 @@ $conn->close();
             <div class="form-field">
                 <label for="fullname">Full Name:
                     <input 
-                        type="text" 
+                        type="text"         
+                        value="<?php echo $fullname ?>"
                         name="fullname" 
                         id="fullname"  
                         placeholder="Enter Full Name"
-                        autocomplete="off"
-                        
+                        autocomplete="off"                        
                     >
                 </label>
+                <span class="error"><?php echo $fullnameErr;?></span>
             </div>
             <div class="form-field">
                 <label for="email">Email:
@@ -157,6 +165,7 @@ $conn->close();
                         autocomplete="off"
                     >
                 </label>
+                <span class="error">*<?php echo $emailErr;?></span>
             </div>
             <div class="form-field">
                 <label for="phone">Enter Phone Number:
@@ -168,6 +177,7 @@ $conn->close();
                         autocomplete="off"
                     >
                 </label>
+                <span class="error">*<?php echo $phoneErr;?></span>
             </div>
  
             <div class="form-field">
@@ -177,10 +187,10 @@ $conn->close();
                         name="password" 
                         id="password"  
                         placeholder="Enter Password"
-                        autocomplete="off"
-                        
+                        autocomplete="off"                        
                     >
                 </label>
+                <span class="error">*<?php echo $passwordErr;?></span>
             </div>
             <div class="form-field">
                 <label for="password">Confirm Password:
@@ -189,10 +199,10 @@ $conn->close();
                         name="confirm_password" 
                         id="password"  
                         placeholder="Confirm Password"
-                        autocomplete="off"
-                        
+                        autocomplete="off"                        
                     >
                 </label>
+                <span class="error">*<?php echo $confirm_passwordErr;?></span>
             </div>
             <div class="btn">
                 <input class="button" type="submit" name="submit" id="submit" value="Create Account">
