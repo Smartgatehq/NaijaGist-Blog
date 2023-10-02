@@ -87,54 +87,86 @@ if(isset($_POST['submit'])){
     }
     
     // Validate credentials
-    if(empty($email_err) && empty($password_err)){
-        // Prepare a select statement
-        $sql = "SELECT id, email, password FROM users WHERE email = ?";
+    if(empty($email_err) && empty($password_err)){      
+        $param_email = mysqli_real_escape_string($conn, $email);
+        $param_password = mysqli_real_escape_string($conn, $password);
+
+          // Prepare a select statement
+        $sql = "SELECT id, email, password FROM users WHERE email = '$param_email'";
+
+        $result = mysqli_query($conn, $sql);
+        if($result){
+            if(mysqli_num_rows($result) ==1){
+                $row =mysqli_fetch_assoc($result);
+                $hashed_password = $row['password'];
+
+
+                //verify the password
+                if(password_verify($param_password, $hashed_password)){
+                    $_SESSION["loggedin"] = true;
+                    $id = $row["id"];
+                    $_SESSION["id"] = $id;
+                    $_SESSION["email"] = $email;
+                    header("location:dashboard.php");
+
+                    exit;
+                }else{
+                    echo "pasword is wrong";
+                }
+            }else{
+                echo "email does not exist";
+            }
+        }else{
+            echo "something went wrong";
+        }
+
+
+
         
-        if($stmt = mysqli_prepare($conn, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_email);
+        // if($stmt = mysqli_prepare($conn, $sql)){
+        //     // Bind variables to the prepared statement as parameters
+        //     mysqli_stmt_bind_param($stmt, "s", $param_email);
             
-            // Set parameters
-            $param_email = $email;
+        //     // Set parameters
+        //     $param_email = $email;
             
             
-            if(mysqli_stmt_execute($stmt)){
+        //     if(mysqli_stmt_execute($stmt)){
              
-                mysqli_stmt_store_result($stmt);
+        //         mysqli_stmt_store_result($stmt);
                 
               
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
+        //         if(mysqli_stmt_num_rows($stmt) == 1){                    
+        //             // Bind result variables
+        //             mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
+        //             if(mysqli_stmt_fetch($stmt)){
+        //                 if(password_verify($password, $hashed_password)){
                             
                 
                             
-                            // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["email"] = $email;                            
+        //                     // Store data in session variables
+        //                     $_SESSION["loggedin"] = true;
+        //                     $_SESSION["id"] = $id;
+        //                     $_SESSION["email"] = $email;                            
                             
-                            // Redirect user to welcome page
-                            header("location:dashboard.php");
-                        } else{
+        //                     // Redirect user to welcome page
+        //                     header("location: dashboard.php");
+        //                 } else{
                            
-                            $login_err = "Invalid email or password.";
-                        }
-                    }
-                } else{
-                    // email doesn't exist, display a generic error message
-                    $login_err = "Invalid email or password.";
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
+        //                     $login_err = "Invalid email or password.";
+        //                 }
+        //             }
+        //         } else{
+        //             // email doesn't exist, display a generic error message
+        //             $login_err = "Invalid email or password.";
+        //         }
+        //     } else{
+        //         echo "Oops! Something went wrong. Please try again later.";
+        //     }
 
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
+        //     // Close statement
+        //     mysqli_stmt_close($stmt);
+        // }
     }
     
     // Close connection
