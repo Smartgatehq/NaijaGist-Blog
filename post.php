@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/messageform.css">
+    <link rel="stylesheet" href="css/post.css">
     <title>Message Form</title>
 </head>
 <body>
     <form action="" method="">
-        <div>
+        <div class="form-field">
         <input 
             type="text"
             name="topic"
@@ -17,7 +17,7 @@
             required
         >
     </div>
-        <div>
+    <div class="form-field">
         <select id="country" name="country">
             <option value="select">Select Section</option>
             <option value="politics">Politics</option>
@@ -28,7 +28,7 @@
             <option value="others">Others</option>
         </select>
     </div>
-        <div>
+    <div class="form-msg">
         <textarea 
             name="message" 
             id="message" 
