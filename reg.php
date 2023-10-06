@@ -73,10 +73,10 @@ if(isset($_POST['submit'])){
     if (empty($fullname) || empty($email) || empty($password)  || empty($phone)){
         $errors['errors'] = "Please fill in all required fields.";
     } else {
-        $hashed_password  = password_hash($password, PASSWORD_DEFAULT);
+        //$hashed_password  = password_hash($password, PASSWORD_DEFAULT);
         $insert_sql = "INSERT INTO users (firstname, lastname, email, password, numbers) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($insert_sql);
-        $stmt->bind_param("sssss", $fullname, $email, $hashed_password, $phone);
+        $stmt->bind_param("sssss", $fullname, $email, $password, $phone);
         
         if ($stmt->execute()) {
             $success_message = "Registration successful! You can now log in.";

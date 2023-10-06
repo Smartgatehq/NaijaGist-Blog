@@ -1,0 +1,135 @@
+:root {
+
+    --black:#343a40;;
+    --white:  #f1f1f1;
+
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #eaeaeb;
+ }
+
+
+
+  /* styling the dashboard body */
+/* 
+  .dashboard-container{
+    background-color: #bcbdbe;
+    margin-top: 1em;
+  } */
+
+
+
+  
+.user-overview{
+    margin-left: 10em;
+    margin-top: 10em;
+   
+}
+
+.user-overview h3{
+    margin-left: 4.5em;  
+   
+}
+
+
+.user-overview p{
+    margin-left: 5em;  
+   
+}
+
+.user-numbers{
+    display: flex;
+    margin-left: 5em;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.user-card{
+    border: 2px solid white;
+    text-align: left;    
+    padding: 2.5em 3em;
+    margin: 2em 1em;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgb(196, 194, 194) 0px 5px 15px;
+}
+
+.user-card p{
+    display: inline;
+}
+
+.open-button{
+    padding: 1em 2em;
+    margin: 1em;
+    background-color: black;
+    border: 0px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.open-button:hover{
+    background-color: #07a04c;
+ 
+}
+.open-button a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+
+
+/* styling list of users section */
+
+.user-list{
+    margin-left: 15em;
+}
+
+table, td, th {
+    border-bottom: 1px solid #dfe0e0;
+  }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: #eaeaeb 0px 5px 15px;
+  }
+
+th {
+    height: 70px;
+ }
+
+ tr{
+  height: 60px;
+  transition: 0.5s;
+  cursor: pointer;
+  /* padding-left: 1em; */
+ }
+
+ tr:hover {
+  background-color: #dfe0e0;
+ }
+ 
+
+.btn-active{
+  border: 1px solid #c8caca;
+  background-color: #c8caca;
+  padding: 0.45em 1em;
+  border-radius: 8px;
+  color: #07a04c;
+}
+
+.btn-inactive {
+  border: 1px solid #c8caca;
+  background-color: #c8caca;
+  padding: 0.45em 1em;
+  border-radius: 8px;
+  color: #f91706;
+}
+

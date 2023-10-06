@@ -81,10 +81,10 @@
  if (empty($fullname) || empty($email) || empty($password) || empty($phone)){
        echo "Please fill in all required fields.";
  }else {
-        $hashed_password  = password_hash($password, PASSWORD_DEFAULT);
+        //$hashed_password  = password_hash($password, PASSWORD_DEFAULT);
         $insert_sql = "INSERT INTO users (fullname, email, password, phone) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($insert_sql);
-        $stmt->bind_param("ssss", $fullname, $email, $hashed_password, $phone);
+        $stmt->bind_param("ssss", $fullname, $email, $password, $phone);
         
 
 

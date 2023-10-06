@@ -1,0 +1,48 @@
+:root {
+
+    --black:#343a40;;
+    --white:  #f1f1f1;
+
+}
+
+
+.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 15%;
+    overflow: hidden;
+    background-color:var(--black);
+    position: fixed;
+    top: 0;
+    width: 85%;
+    height: 10%;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: var(--white);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: var(--black);
+  }
+  
+  .search {
+    margin-left: 60%;
+    padding-top: 2%;
+  }
+
+  .search input {
+    height: 80%;
+  }
+
+  .user-icon{
+    margin-left: 95%;
+  }

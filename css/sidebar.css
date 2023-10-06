@@ -1,0 +1,43 @@
+:root {
+
+    --black:#343a40;;
+    --white:  #f1f1f1;
+
+}
+
+body {font-family: "Lato", sans-serif;}
+
+.sidebar {
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:var(--black);
+  overflow-x: hidden;
+  padding-top: 80px;
+}
+
+.sidebar a {
+  padding: 40px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color:var(--white);
+  display: block;
+ 
+}
+
+.sidebar a:hover {
+  color: rgba(255, 255, 255, 0.596);
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}

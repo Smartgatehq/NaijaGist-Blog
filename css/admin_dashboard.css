@@ -1,0 +1,106 @@
+:root {
+
+    --black:#343a40;;
+    --white:  #f1f1f1;
+
+}
+
+body {font-family: "Lato", sans-serif;}
+
+
+  .user-icon{
+    margin-left: 95%;
+  }
+
+  .dashboard {
+    margin: 7% 15% 0% 20% ;
+    color: black;
+   }
+
+   .cards{
+    display: flex;
+    margin-top: 2%;
+   }
+  
+  .users {   
+    border: 1px solid #0d6efd;
+    background-color: #0d6efd;
+    width: 18%;
+    height: 100px;
+    margin-left: 20%;
+    color: white;
+    border-radius: 8px;
+    box-shadow: black 0px 5px 15px;
+    cursor: pointer;
+
+  }
+
+  .posts {
+    border: 1px solid #ffc107;
+    background-color: #ffc107;
+    width: 18%;
+    height: 100px;
+    margin-left: 2%;
+    color: white;
+    border-radius: 8px;
+    box-shadow: black 0px 5px 15px;
+    cursor: pointer;
+
+  }
+
+  .topics {
+    border: 1px solid #198754;
+    background-color:#198754;
+    width: 18%;
+    height: 100px;
+    margin-left: 2%;
+    color: white;
+    border-radius: 8px;
+    box-shadow: black 0px 5px 15px;
+    cursor: pointer;
+
+  }
+
+  .views {
+    border: 1px solid #dc3545;
+    background-color: #dc3545;
+    width: 18%;
+    height: 100px;
+    margin-left: 2%;
+    color: white;
+    border-radius: 8px;
+    box-shadow: black 0px 5px 15px;
+    cursor: pointer;
+  }
+
+  .charts {
+    display: flex;
+    margin-top: 5%;
+  }
+
+  .mypics img{
+    margin-left: 60%;
+    height: 450px;
+    border-radius: 100%;
+  }
+
+
+.mymap{
+  margin-left: 25%;
+  border-radius: 15px;
+  margin-top: 3%;
+ }
+
+ .mymap iframe{
+  border-radius: 15px;
+ }
+ 
+ .user-list{
+  text-align: center;
+  margin-top: 3%;
+ }
+
+ .user-table{
+  margin: 5% 0% 5% 25%;
+  text-align: center;
+ }
