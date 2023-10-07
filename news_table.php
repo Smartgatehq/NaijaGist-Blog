@@ -14,7 +14,10 @@
 
 include "topnav.php";
 include "sidebar.php";
-// include "admin_dashboard.php";
+include "blog_database.php";
+
+$query = "SELECT * from sports";
+$result = mysqli_query($conn, $query);
 
 ?>
 
@@ -36,65 +39,32 @@ include "sidebar.php";
 
 <div class="user-list">
             <h1>POSTS</h1>
-           <table>
-            <tr>
-                <th>S/N</th>
-                <th>Title</th>
-                <th>Details</th>
-                <th>Image</th>
-                <th>Date</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>John Mike</td>
-                <td>Fullstack Developer</td>
-                <td>pitcure</td>
-                <td>61</td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>John Mike</td>
-                <td>Fullstack Developer</td>
-                <td>pitcure</td>
-                <td>61</td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>John Mike</td>
-                <td>Fullstack Developer</td>
-                <td>pitcure</td>
-                <td>61</td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>John Mike</td>
-                <td>Fullstack Developer</td>
-                <td>pitcure</td>
-                <td>61</td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>John Mike</td>
-                <td>Fullstack Developer</td>
-                <td>pitcure</td>
-                <td>61</td>
-                <td> </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>John Mike</td>
-                <td>Fullstack Developer</td>
-                <td>pitcure</td>
-                <td>61</td>
-                <td> </td>
-            </tr>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Details</th>
+                    <th>Image</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "<tr>
+                    <td>{$row['id']}</td>
+                    <td>{$row['title']}</td>
+                    <td>{$row['details']}</td>
+                    <td>{$row['images']}</td>
+                    <td>{$row['created_date']}</td>
 
-            
+                    </tr>";
+
+                }
+                ?>
+            </tbody>           
         </table>
     </div>
 
