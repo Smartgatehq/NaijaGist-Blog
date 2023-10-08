@@ -1,3 +1,10 @@
+<?php
+
+include "topnav.php";
+include "sidenav.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,22 +15,7 @@
         <title>Dashboard- NaijaGist-Blog Admin</title>
     </head>
     <body>
-        <div class="sidebar">
-            <a href="dashboard.html"><i class="fa fa-fw fa-chart-line"></i> Dashboard</a>
-            <a href="users.html"><i class="fa-solid fa-users" style="color: #f5f7fa;"></i> Users</a>
-            <a href="#clients"><i class="fa fa-fw fa-envelope"></i> Posts</a>
-            <a href="#contact"><i class="fa-solid fa-chart-simple" style="color: #f5f7fa;"></i> Analytics</a>
-        </div>
-   
-        <div class="topnav">        
-            <div class="search">
-                <input type="search" name="search" placeholder="Search for..."><button>Search</button>
-            </div>
-            <div>
-                <i class="user-icon fa-solid fa-user" style="color: #c3d7f9;"></i>
-            </div>
-        </div>
-        <div class="dashboard-container">
+               <div class="dashboard-container">
 
         <div class="user-overview">
                 <h3>Dashboard</h3>
