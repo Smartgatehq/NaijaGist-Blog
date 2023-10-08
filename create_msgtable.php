@@ -35,7 +35,7 @@ if ($conn->connect_error) {
 
 // Creating table
 
-$sql = 'CREATE TABLE politics(
+$sql = 'CREATE TABLE business(
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(500) NOT NULL,
     details VARCHAR(5000) NOT NULL,
@@ -44,7 +44,7 @@ $sql = 'CREATE TABLE politics(
 )';
 
 if ($conn->query($sql) === TRUE) {
-    echo 'Table created successfully';
+    echo 'Business Table created successfully';
 } else {
     echo 'Error creating table: ' . $conn->error;
 }
