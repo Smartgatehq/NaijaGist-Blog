@@ -45,8 +45,8 @@
             </div>
             <a href="#"class="dropdown-btn">Business</a>
             <div class="dropdown-container">
-                <a href="#">View</a>
-                <a href="#">Add</a>
+                <a href="business_table.php">View</a>
+                <a href="business_add.php">Add</a>
             </div>
           </div>
 
