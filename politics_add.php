@@ -3,6 +3,9 @@ include 'blog_database.php';
 include "topnav.php";
 include "sidenav.php";
 
+
+$message = "";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $imageFolder = 'images/';
 
@@ -33,7 +36,7 @@ if (move_uploaded_file($images, $imagePath)) {
     $sql ="INSERT INTO politics (title, details, images) VALUES ('$title', '$details', '$imageName')";
 
 if($conn->query($sql) === TRUE){
-    echo 'successfully';
+    $message = 'Message posted successfully';
 }else{
     echo "failed";
 }
@@ -60,6 +63,7 @@ if($conn->query($sql) === TRUE){
 </head>
 <body>
     <form action="" method="POST" enctype="multipart/form-data">
+    <span class="success"><?php echo $message;?></span>
         <div class="form-field">
         <input 
             type="text"

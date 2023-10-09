@@ -18,6 +18,10 @@ margin: 10em 20em;
 
 }
 
+span{
+color: green;
+
+}
 .form-field input{
     width: 100%;
     height: 30px;
