@@ -29,8 +29,9 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bc18bf7a86.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/news_table.css">
-    <title>News Table</title>
+    <title>Politics News Table</title>
 </head>
 <body>
     
@@ -59,14 +60,19 @@ $result = mysqli_query($conn, $query);
                     <td>{$row['details']}</td>
                     <td>{$row['images']}</td>
                     <td>{$row['created_date']}</td>
-
+                    <td><a href='edit_post.php?id={$row['id']}'>Edit</a></td>
+                    <td><a href='delete.php?id={$row['id']}'>Delete</a></td>                                      
                     </tr>";
-
                 }
                 ?>
+
+              
             </tbody>           
         </table>
     </div>
 
 </body>
 </html>
+
+<i class="fa-solid fa-pen" style="color: #079e05;"></i>
+<i class="fa-solid fa-trash" style="color: #f91f35;"></i>

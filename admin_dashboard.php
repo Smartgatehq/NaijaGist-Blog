@@ -11,6 +11,7 @@ include "sidenav.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bc18bf7a86.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/admin_dashboard.css">
     <title>Admin Dashboard</title>
 </head>
