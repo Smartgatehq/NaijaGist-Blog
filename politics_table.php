@@ -60,13 +60,11 @@ $result = mysqli_query($conn, $query);
                     <td>{$row['details']}</td>
                     <td>{$row['images']}</td>
                     <td>{$row['created_date']}</td>
-                    <td><a href='edit_post.php?id={$row['id']}'>Edit</a></td>
-                    <td><a href='delete.php?id={$row['id']}'>Delete</a></td>                                      
-                    </tr>";
+                    <td><a href='edit_post.php?id={$row['id']}'><i class='pen-icon fa-solid fa-pen'></i><span class'tooltiptext'>Edit</span></i</a></td>
+                    <td><a href='edit_post.php?id={$row['id']}'><i class='trash-icon fa-solid fa-trash'></i</a></td>
+                  </tr>";
                 }
-                ?>
-
-              
+                ?>              
             </tbody>           
         </table>
     </div>

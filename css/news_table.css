@@ -108,7 +108,7 @@ th {
  tr{
   height: 60px;
   transition: 0.5s;
-  cursor: pointer;
+  /* cursor: pointer; */
   /* padding-left: 1em; */
  }
 
@@ -133,3 +133,28 @@ th {
   color: #f91706;
 }
 
+
+.pen-icon{
+  color: #07a04c;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.pen-icon .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.pen-icon:hover .tooltiptext {
+  visibility: visible;
+}
