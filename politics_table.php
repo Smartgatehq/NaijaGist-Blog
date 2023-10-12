@@ -16,12 +16,28 @@ include "topnav.php";
 include "sidenav.php";
 include "blog_database.php";
 
-$query = "SELECT * from politics";
-$result = mysqli_query($conn, $query);
+// $query = "SELECT * from politics";
+// $result = mysqli_query($conn, $query);
+
+$recordPerPage = 10;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$offset = ($page - 1) * $recordPerPage;
+
+$query = "SELECT * FROM politics LIMIT $offset, $recordPerPage";
+$result = mysqli_query($conn,$query);
+
+//count total record
+
+$totalRecordQuery = "SELECT COUNT(*) as total from politics";
+$totalRecords = mysqli_query($conn,$totalRecordQuery);
+$totalRecords = mysqli_fetch_assoc($totalRecords)['total'];
+
+
+//calculate the total number of pages
+
+$totalPage = ceil($totalRecords / $recordPerPage);
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -60,17 +76,21 @@ $result = mysqli_query($conn, $query);
                     <td>{$row['details']}</td>
                     <td>{$row['images']}</td>
                     <td>{$row['created_date']}</td>
-                    <td><a href='edit_post.php?id={$row['id']}'><i class='pen-icon fa-solid fa-pen'></i><span class'tooltiptext'>Edit</span></i</a></td>
-                    <td><a href='edit_post.php?id={$row['id']}'><i class='trash-icon fa-solid fa-trash'></i</a></td>
+                    <td><a href='edit_post.php?id={$row['id']}'><i class='fa-solid fa-pen' style='color: #079e05;'></i></a></td>
+                    <td><a href='popup.php?id={$row['id']}'><i class='fa-solid fa-trash' style='color: #f91f35;'></i></a></td>
                   </tr>";
                 }
                 ?>              
-            </tbody>           
+            </tbody>   
         </table>
-    </div>
+        <?php
+    for($i = 1; $i <= $totalPage; $i++){ ?>
+        <a href="?page=<?php echo $i ?>" <?php if ($i == $page) echo 'class="active" style="color: #f91f35"'; ?> 
+       ><?php  echo $i; ?> </a>
+       
+   <?php } ?> 
+</div>
 
 </body>
 </html>
 
-<i class="fa-solid fa-pen" style="color: #079e05;"></i>
-<i class="fa-solid fa-trash" style="color: #f91f35;"></i>
